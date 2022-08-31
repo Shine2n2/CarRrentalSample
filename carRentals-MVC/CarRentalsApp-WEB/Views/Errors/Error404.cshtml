@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Error 404";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/ft-style.css" />
+
+
+
+<div class="error-404">              
+    <img src="~/Img/Logo.png" class="mx-auto d-block">
+ </div>
+ <div class="card m-5 w-300">
+   <div class="text-center text-dark mt-5">
+     <img src="~/Images/oops.jpg"><br>
+     <h1 >Error 404 - Not Found.</h1>                       
+     <h3>Sorry, an error has occured, requested page not found.</h3>
+   </div>
+   <br/>
+   <div class="text-center">
+      <a type="submit" class="btn btn-color px-5 mb-5 w-10" asp-controller="Home" asp-action="Index">Back to Home</a>
+      <a type="submit" class="btn btn-color px-5 mb-5 w-10" asp-controller="Home" asp-action="Contact">Contact Support</a>
+   </div> 
+</div>

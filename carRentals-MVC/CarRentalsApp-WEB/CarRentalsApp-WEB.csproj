@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>CarRentalsApp_WEB</RootNamespace>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.13" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+  </ItemGroup>
+
+  
+  
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarRentalsApp-WEB.Application\CarRentalsApp-WEB.Application.csproj" />
+    <ProjectReference Include="..\CarRentalsApp-WEB.Models\CarRentalsApp-WEB.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Users\" />
+    <None Remove="Views\Errors\" />
+    <None Remove="Microsoft.AspNetCore.Session" />
+    <None Remove="Microsoft.AspNetCore.Http.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Enums\" />
+    <Folder Include="Views\Errors\" />
+  </ItemGroup>
+</Project>

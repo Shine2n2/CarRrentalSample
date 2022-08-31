@@ -1,0 +1,90 @@
+﻿@model CarBookTripViewModel
+
+
+@{   
+    ViewData["Title"] = "Summary";
+   
+}
+
+
+  <br><br><br><br><br>
+                  <form method="post" asp-controller="Car" asp-action="Payment">
+                      <div class="row pt-5 pb-5">
+                          <div class="col-sm-3"></div>
+                          <div class="card text-center pt-4 pb-2 px-4 col-sm-6 w-30">
+                              <div class="card-body">
+                                  <h1 class="card-title pb-5"><strong>Summary</strong></h1>
+                                  <table class="table pb-5 mb-5 bg-white table-borderless w-100">
+
+                                      <tr class="mb-3 summary-text">
+                                          <th class="text-left">Name of Car</th>
+                                          <td class="text-right">@Model.CarName</td>
+                                      </tr>
+                                      <tr>
+                                          <th class="text-left">Pickup Date</th>
+                                          <td class="text-right">@Model.Pickupdate</td>
+                                      </tr>
+                                      <tr>
+                                          <th class="text-left">Return Date</th>
+                                          <td class="text-right">@Model.Returndate</td>
+                                      </tr>
+                                      <tr>
+                                          <th class="text-left">Number of Hours</th>
+                                          <td class="text-right">@Model.TimeSpend Hours</td>
+                                      </tr>
+                                      <tr>
+                                          <th class="text-left">Amount</th>
+                                          <td class="text-right"><span style="text-decoration-line: line-through; text-decoration-style: double;">N</span> @Model.Amount</td>
+
+                                      </tr>
+                                      <tr>
+                                          <th class="text-left">Pick up & return location</th>
+                                          <td class="text-right">@Model.Location</td>
+                                      </tr>
+                                  </table>
+
+                              </div>
+                          </div>
+                          <div class="col-sm-3"></div>
+                      </div>
+
+                      <div class="row pt-5 pb-5">
+                          <div class="col-sm-3"></div>
+
+                          <div class="card text-center pt-4 pb-2 px-4 col-sm-6 w-30">
+                              <div class="card-body">
+                                  <h1 class="card-title pb-5"><strong>Add payment method</strong></h1>
+
+                                  <table class="table pb-5 mb-5 bg-white table-borderless w-100">
+
+                                      <tr class="mb-3">
+                                          <th class="text-center"><input class="form-check-input" type="radio" name="paymentMethod" value="Paystack" /></th>
+                                          <td class="text-left"><label class="form-check-label" for="html">Paystack</label></td>
+                                      </tr>
+                                      <tr>
+                                          <th class="text-center"><input class="form-check-input" type="radio" name="paymentMethod" value="Flutterwave" /></th>
+                                          <td class="text-left"><label class="form-check-label" for="html">Flutterwave</label></td>
+                                      </tr>
+                                      <tr>
+                                          <th class="text-center"><input class="form-check-input" type="radio" name="paymentMethod" value="CreditDebitCard" /> </th>
+                                          <td class="text-left"><label class="form-check-label" for="html">Credit or Debit card</label></td>
+                                      </tr>
+                                      <tr>
+                                          <th class="text-center"><input class="form-check-input" type="radio" name="paymentMethod" value="BankTransfer" /> </th>
+                                          <td class="text-left"><label class="form-check-label" for="html">Bank Transfer</label></td>
+                                      </tr>
+
+                                  </table>
+
+                                  <button type="submit" class="btn btn-color mb-3 w-100">Pay</button>
+
+                              </div>
+                          </div>
+                          <div class="col-sm-3"></div>
+                      </div>
+                      <input type="hidden" name="tripId" value="@Model.TripId" />
+                      <input type="hidden" value="@Model.Amount" name="amount" />
+                      <input type="hidden" value="craftwordltd@gmail.com" name="email" />
+
+                  </form>
+     

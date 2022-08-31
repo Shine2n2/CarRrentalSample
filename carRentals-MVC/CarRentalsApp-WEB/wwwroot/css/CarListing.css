@@ -1,0 +1,129 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@200&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-color: #21334F;
+    --hover-color: #E85D04;
+    --bg-color: #E85D04;
+}
+
+
+
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+
+
+
+
+.list-text {
+    margin: 0;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+    background-color: #F5F5F5;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+}
+
+.car-search-btn {
+    background-color:var(--bg-color);
+}
+
+.car-list-rate p {
+    margin-left: .2rem;
+    font-weight:bolder;
+}
+.car-list-text a {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+.brackets:before {
+    content: '(';
+}
+
+.brackets:after {
+    content: ')';
+}
+
+.car-list-text{
+    color:var(--font-color)
+}
+.car-list-text h2 {
+    font-size: 1.3rem;
+    font-weight: bolder;
+}
+.car-list-text{
+    font-size: 1.1rem;
+}
+
+.top-car-list {
+    box-shadow: 0px 5px 25px -3px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    padding: 5px;
+}
+
+.top-car-list img {
+        width: 100%;
+    }
+.view-details{
+    font-size: 1.2rem;
+}
+/* end of car listing */
+
+@media only screen and (min-width:300px) and (max-width :678px) {
+ .car-list-rate{
+   
+ }
+
+}
+
+    /* start of pagination */
+    .page-navigtion {
+        width: 20%;
+        margin: 20px auto;
+    }
+
+    .page-item .page-link {
+        color: var(--font-color)
+    }
+
+    .page-link:hover {
+        background-color: var(--hover-color);
+        color: #fff !important;
+    }
+
+    .page-item i {
+        color: var(--font-color)
+    }
+
+        .page-item i:hover {
+            color: #eaa400 !important;
+        }
+    /* end of pagination */

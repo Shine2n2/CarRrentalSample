@@ -1,0 +1,76 @@
+﻿@{
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+    ViewData["Title"] = "SignUp";
+}
+
+
+@*----------------create account area  ----------------*@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 offset-md-1">
+            <div class="col-md-12 col-6">
+                <img src="~/Images/carImg.png" class="mx-auto d-block ">
+            </div>
+            <div class="card my-5 col-md-12 col-6" style="width: 60rem;">
+
+                <form class="card-body cardbody-color p-lg-5" asp-controller="Auth" asp-action="Register">
+                    <div class="text-danger" asp-validation-summary="All"></div>
+                    <h2 class="text-left text-dark mt-5">Login to your account<br><br></h2>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">First Name</label>
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="First Name" name="firstName">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Last Name</label>
+                            <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name" name="lastName">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Phone Number</label>
+                            <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number" name="phoneNumber">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="Address" name="address">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Gender</label>
+                            <select name="gender" class="form-control">
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Password</label>
+                            <div class="mb-3 passwordContainer">
+                                <input type="password" class="passwordInput form-control password" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters " required>
+                                <div class="toggleImgContainer form-control" onclick="myFunction()"><img src="~/Images/passwordHideIcon.png" class="togglePasswordVisibility"></div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Confirm Password</label>
+                            <div class="mb-3 passwordContainer">
+                                <input type="password" class="passwordInput form-control .confirmPassword" placeholder="Confirm Password" name="confirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters " required>
+                                <div class="toggleImgContainer form-control" onclick="myFunction()"><img src="~/Images/passwordHideIcon.png" class="togglePasswordVisibility"></div>
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                            <label class="form-check-label" for="flexCheckIndeterminate"> Creating an account means your’re okay with our Terms of services and Privacy Policy</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-color px-2 mb-2 w-100 text-center" id="signup" onclick="checkPasswords(event)">Sign Up</button>
+                    <div class="form-text text-center mb-5 text-dark">
+                        Already have an account? <a href="/Auth/Login" class="signUp-text"> Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src=~/js/loginSignupLocation.js></script>

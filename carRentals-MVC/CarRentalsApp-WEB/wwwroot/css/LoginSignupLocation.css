@@ -1,0 +1,119 @@
+﻿a:hover {
+    color: #E85D04;
+    text-decoration: none;
+}
+
+button {
+    padding: 1rem;
+    font-size: large;
+}
+
+.btn-color:hover {
+    color: white;
+}
+
+.btn-color {
+    background-color: #E85D04;
+    color: #fff;
+    margin: 1rem auto 0 auto;
+}
+.form-control {
+    background-color: rgba(225,225,225,0.5);
+    background-repeat: no-repeat;
+}
+
+input {
+    color:red;
+}
+.logo{
+    display: inline-block;
+    margin: auto;
+}
+
+.signUp-text {
+    color: #E85D04;
+}
+
+.form-control::placeholder {
+    color: #C4C4C4;
+}
+
+.passwordInput{
+    border: none !important;
+}
+
+.passwordContainer {
+    background-color: rgba(225,225,225,0.5);
+    border: 1px solid #ced4da;
+    border-radius: 0.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.toggleImgContainer:hover {
+    background-color: rgba(225,225,225,0.1);
+}
+
+.toggleImgContainer{
+    border: none !important;
+    padding-right: 1rem;
+    width: 10%;
+}
+
+
+#bigMap > img {
+    width: 100%;
+}
+
+#locationStates {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 4em auto;
+    width: 70%;
+}
+
+.locationTitle {
+    margin-top: 150px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+    .locationTitle > h1 {
+        font-family:Tahoma;
+        font-style: normal;
+        font-weight:bolder;
+        font-size: 40px;
+        line-height: 55px;
+        /* identical to box height */
+
+
+        color: #21334F;
+    }
+
+.state {
+    color: black;
+    display: block;
+    margin: 0.5em;
+    text-decoration: none;
+}
+
+    .state:hover {
+        color: #E85D04;
+        cursor: pointer;
+    }
+
+@media screen and (max-width: 768px) {
+    #locationStates {
+        width: 90%;
+    }
+
+    #locationTitle > h1 {
+        font-size: larger;
+    }
+
+    #locationTitle > p {
+        font-size: smaller;
+    }
+}

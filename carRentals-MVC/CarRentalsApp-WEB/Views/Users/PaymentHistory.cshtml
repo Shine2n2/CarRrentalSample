@@ -1,0 +1,111 @@
+﻿
+
+@{   
+    ViewData["Title"] = "Payment History";    
+}
+
+
+<br><br><br><br><br>
+<div class="container pt-5 pb-1 bac">
+
+    <h2 class="float-start pb-5 text-left">Payment History</h2>
+     
+
+<div class="table-responsive" id="adjust-table">
+
+        <table class="table table-striped align-middle text-center mb-0 bg-white">
+          <thead class="bg-light table-borderless">
+                <tr>
+                  <th>Date of Payment</th>
+                  <th>Amount</th>
+                  <th>Car Booked</th>
+                  <th>Method of Payment</th>
+                  <th>Status</th>
+                </tr>
+          </thead>
+  
+          <tbody class="mb-3">
+                <tr>
+                  <td data-title="Date of Payment">            
+                    04/03/2022            
+                  </td>
+                  <td data-title="Amount">
+                    N3,000,000
+                  </td>
+                  <td data-title="Car Booked">
+                    Toyota corolla
+                  </td>
+                  <td data-title="Method of Payment">
+                    Online transfer
+                  </td>
+                  <td data-title="Status">
+                   <span class="badge badge-pill bg-success text-light pr-2 pl-2">Paid</span>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td data-title="Date of Payment">            
+                    04/03/2022            
+                  </td>
+                  <td data-title="Amount">
+                    N3,000,000
+                  </td>
+                  <td data-title="Car Booked">
+                    Toyota corolla
+                  </td>
+                  <td data-title="Method of Payment">
+                    Online transfer
+                  </td>
+                  <td data-title="Status">
+                   <span class="badge badge-pill bg-danger text-light pr-2 pl-2">Cancelled</span>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td data-title="Date of Payment">            
+                    04/03/2022            
+                  </td>
+                  <td data-title="Amount">
+                    N3,000,000
+                  </td>
+                  <td data-title="Car Booked">
+                    Toyota corolla
+                  </td>
+                  <td data-title="Method of Payment">
+                    Online transfer
+                  </td>
+                  <td data-title="Status">
+                   <span class="badge badge-pill bg-warning text-light pr-2 pl-2">Pending</span>
+                  </td>
+                </tr>
+
+          </tbody>
+        </table>
+       </div>
+
+        <div class="container mt-3 pt-3 mb-5 bg-white">
+
+         <nav aria-label="PageNavigation">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link text-dark" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo&nbsp;Prev</span>
+              </a>
+            </li>
+
+            <li class="page-item text-dark"><a class="page-link text-dark" href="#">1</a></li>
+            <li class="page-item text-dark"><a class="page-link text-dark" href="#">2</a></li>
+            <li class="page-item text-dark"><a class="page-link text-dark" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link text-dark" href="#" aria-label="Next">
+                <span aria-hidden="true">Next&nbsp;&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+    </div>
+
+</div>

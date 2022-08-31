@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+ <link rel="stylesheet" href="~/css/ft-style.css" />
+
+
+ <div class="text-center">              
+    <img src="~/Img/Logo.png">
+ </div>
+ <div class="card m-5 w-200">
+     <form method="post" asp-controller="" asp-action="" class="card-body cardbody-color p-lg-5">
+          <img src="~/img/Envelop.png" class="mx-auto d-block">
+          <h2 class="text-center text-dark mt-5">Check your mail<br></h2>                       
+          <div class="text-center"><a>We sent a password reset link to your email.<br> Please click the link to reset your password</a></div>
+          <div class="form-text text-center mb-5 text-dark">Didn't receive the email? <a href="/Home/Privacy" class="signUp-text"> Click to Resend link</a>
+          </div>                            
+          <div class="text-center">
+              <button type="submit" class="btn btn-color px-5 mb-5 w-10" asp-controller="Auth" asp-action="Login">Back to Login</button>
+          </div>  
+     </form>
+</div>

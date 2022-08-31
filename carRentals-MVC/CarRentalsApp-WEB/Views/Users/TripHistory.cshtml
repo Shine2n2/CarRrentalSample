@@ -1,0 +1,69 @@
+﻿@model IEnumerable<UserTripViewModel>
+@{
+    ViewData["Title"] = "Trip History";
+}
+<link rel="stylesheet" href="~/css/ft-style.css" />
+
+<br><br><br><br>
+<div class="container p-0"> 
+       <ul class="list-group list-group-horizontal">
+          <li class="list-group-item w-50 pl-0 border-0"><h3 class="float-start">My Rides</h3></li>
+          <li class="list-group-item w-50 text-right pr-0 border-0"><img src="~/Images/filter.png" class="align-right"></li>
+       </ul>  
+</div>
+
+  
+<div class="container pt-3 pb-1 bac">
+    @{
+        foreach (var item in @Model)
+        {
+
+                    <div class="row">             
+
+                         <div class="col-md-3 col-sm-12"><img src="~/Images/map.png"></div>    
+                           <div class="col-sm-12 col-md-5 ml-3">      
+                             <ul>      
+                              <li><h5>10/04/2022 &nbsp&nbsp&nbsp&nbsp&nbsp  03:30PM</h5></li>
+                              <li><img src="~/Images/pic1.png" class="float-start mr-3">(Pickup  Date)   &nbsp&nbsp&nbsp&nbsp&nbsp @item.PickUpDate</li>
+                              <li><img src="~/Images/pic2.png" class="float-start mr-3">(Drop-off  Date) &nbsp @item.ReturnDate</li>
+                              <li><img src="~/Images/pic3.png" class="float-start mr-3">N26,000.00</li>
+                              <li><img src="~/Images/pic4.png" class="float-start mr-3 mb-2">Toyota Corolla SE 2004 (Grey)</li>
+                   @{
+                            if (item.Status == "Done")
+                            {
+                                <li><img src="~/Images/star2.png" class="float-start mb-2"></li>
+                                <li><button type="submit" class="btn btn-color mb-2 pl-5 pr-5" asp-controller= "#" asp-action="">Make Comment</button></li>
+                            }
+                            else if (item.Status == "Pending")
+                            {
+                                <li><button type="submit" class="btn btn-color mb-2 pl-5 pr-5" asp-controller= "#" asp-action="">Cancel Trip</button></li>
+                            }
+                    }
+                             </ul>                             
+                       </div>        
+
+               @{
+                    if (item.Status == "Done")
+                    {
+                                <div class="col-sm-12 col-md-auto float-md-right  mt-5 pt-5"><img src="~/Images/success1.png" class="float-end mb-2"></div>
+                    }    
+
+                    else if(item.Status == "Pending")
+                    {
+                                <div class="col-sm-12 col-md-auto float-md-right  mt-5 pt-5"><img src="~/Images/pend.png" class="float-end mb-2"></div>
+                    }
+
+                    else
+                    {
+                                <div class="col-sm-12 col-md-auto float-md-right  mt-5 pt-5"><img src="~/Images/cancelled1.png" class="float-end mb-2"></div>
+                    }
+
+
+                }
+                       </div>
+                      <hr>
+        }
+        
+    
+  }
+</div>

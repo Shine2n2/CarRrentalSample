@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Error 401";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+ <link rel="stylesheet" href="~/css/ft-style.css" />
+
+
+
+ <div class="error-401">              
+    <img src="~/Images/carImg.png">
+ </div>
+ <div class="card m-5 w-300">
+        <div class="text-center text-dark mt-5">
+            <img src="~/Images/oops.jpg">
+          <h1>HTTP Error 401 - Unauthorized Access.</h1>                       
+          <h3>You have attempted to access a page for which you are not authorized.</h3>
+        </div>
+        <br/>
+          <div class="text-center">
+              <button type="submit" class="btn btn-color px-5 mb-5 w-10" asp-controller="Home" asp-action="Index">Back to Home</button>
+              <button type="submit" class="btn btn-color px-5 mb-5 w-10" asp-controller="Home" asp-action="Contact">Contact Support</button>
+          </div> 
+</div>

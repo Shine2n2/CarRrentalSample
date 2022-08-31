@@ -1,0 +1,274 @@
+﻿
+@model CarDetailsViewModel
+
+@{
+    ViewData["Title"] = "CAR DETAILS";
+
+    
+}
+
+<br>
+<br>
+<br>
+<p></p>
+
+<div class="container mt-5 mb-5 pt-5">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="thumbnail">
+                         <img src="@Model.Images.Where(x => x.IsFeature == true).FirstOrDefault().ImageUrl" alt="Lights" style="width:100%; height:400px" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                @foreach (var item in Model.Images)
+                {
+                    if (!item.IsFeature)
+                    {
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="@item.ImageUrl" alt="Lights" style="width:100%" class="img-responsive" />
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="card col-md-6 col-sm-12 pl-3 border-0 pt-4">
+
+            <h2 class="product-title"><strong>New @Model.Model @Model.YearOfMan Model</strong></h2>
+            <p>Registered & verified</p>
+            <p>@Model.Ratings<span class="fa fa-star text-warning"></span> (@Model.Ratings verified ratings) </p>
+            <div class="rating">
+                <span class="review-no"><h4>N @Model.Price / @Model.UnitOfPrice </h4></span>
+                <h3 class="product-title">@Model.TypeOfCar </h3>
+            </div>
+
+            <div class="container ">
+                <div class="row">
+
+
+                    <div class="card col-lg-6 border-left-0 border-right-0 border-top-1 border-bottom-1 pt-3 pb-3">
+                        <div class="mb-2"><img src="~/Images/lock.png"> <span>Quality Performance</span></div>
+                        <div class="mb-2"><img src="~/Images/circle.png"> <span>Well functional AC control</span></div>
+                        <div><img src="~/Images/check.png"> <span>Suberp quality</span></div>
+                    </div>
+
+
+
+                    <div class=" card col-lg-6 border-left-0 border-right-0 border-top-1 border-bottom-1 pt-3 pb-3">
+
+
+                        <div class="mb-2"><img src="~/Images/chair.png"> <span>5 Seats</span></div>
+                        <div class="mb-2"><img src="~/Images/depot.png"> <span>Fuel (Premium) </span></div>
+                        <div><img src="~/Images/door.png"> <span>4 Doors</span></div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <form method="post" asp-controller="Car" asp-action="BookCarTrip">
+                <div class="row mt-5">
+                    <div class="card border-0 col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="form-group col-md-6 border-0 mb-5">
+                                <h4 class="start">Pick Up Date</h4>
+                                <input type='date' class="p-2" style="width:100%" name="pickupdate" id="pickupdate"/>
+                            </div>
+                            <div class="form-group col-md-6 border-0 mb-5">
+                                <h4 class="start">Return Date</h4>
+                                <input type='date' class="p-2" style="width:100%" name="returndate" id="returndate"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card border-0 col-md-12 mt-3">
+                        <h4 class="pick">Pick Up & Return Location</h4>
+                        <div class="row">
+                            <div class="form-group col-md-12 border-0 mb-5">
+                                <select type="select" class="p-2" style="width:100%" name="location" id="trip-select">
+                                    <option value="">Select location</option>
+                                    @foreach (string name in Enum.GetNames(typeof(States)))
+                                    {
+                                        <option value="@name">@name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    @if (Model.LastTrip.Status == "Done")
+                    {
+                        <div class="form-group col-md-12 border-0 mb-5">
+                            <input type="submit" class="btn btn-color px-5 btn-send  pt-2 btn-block"
+                                   value="Book this car" style="width:100%">
+                        </div>
+
+                    }
+                    else
+                    {
+                        <blockquote class="text-danger">
+                            <p>This Car is not Avaliable at this moment</p>
+                            <p>Booked from @Model.LastTrip.PickUpDate.ToString("dd/M/yyyy") to @Model.LastTrip.ReturnDate.ToString("dd/M/yyyy")</p>
+                        </blockquote>
+
+                    }
+                    <input type="hidden" name="carId" value="@Model.LastTrip.CarId" />
+                    <input type="hidden" name="carName" value="@Model.Model @Model.YearOfMan Model" />
+                    <input type="hidden" name="amount" id="amount" />
+                    <input type="hidden" name="timeSpend" id="timeSpend" />
+                    <input type="hidden" id="price" value="@Model.Price" />
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="card col-md-12 col-sm-12  px-0 mb-3 shadow p-3 mb-5 bg-body rounded">
+            <div class="card-header  border">Car details</div>
+            <div class="card-body">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula enim rhoncus, vitae velit et habitant neque justo sed. Amet, in et tincidunt lectus laoreet.
+                    Elementum quam dolor enim lacus, nunc nulla placerat egestas mauris. Diam semper vestibulum gravida enim orci varius. Suspendisse tellus in netus nulla erat ligula.
+                    Tempus pellentesque habitant nec quis tempor erat id. Mi enim massa in diam viverra euismod. Lobortis ut varius imperdiet sit convallis vivamus nec ut ultrices
+                    Quis eget vehicula in lobortis. Bibendum turpis cum tempor odio. Luctus sit arcu nec vitae arcu fermentum at venenatis. Massa massa amet vel maecenas a.
+                    Odio cras odio sit lacinia adipiscing venenatis. Vitae, mauris nisl faucibus a sed sed. Id viverra sit ac molestie mattis nisl. Pharetra, ut in et senectus dapibus et elementum amet viverra.
+                    In ultrices risus nunc, congue. Odio aliquet tempor, augue amet, mattis urna. Et pharetra habitasse accumsan, ac adipiscing magna.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula enim rhoncus, vitae velit et habitant neque justo sed. Amet, in et tincidunt lectus laoreet.
+                    Elementum quam dolor enim lacus, nunc nulla placerat egestas mauris.Diam semper vestibulum gravida enim orci varius. Suspendisse tellus in netus nulla erat ligula.
+                    Tempus pellentesque habitant nec quis tempor erat id. Mi enim massa in diam viverra euismod. Lobortis ut varius imperdiet sit convallis vivamus nec ut ultrices. Quis eget vehicula in lobortis.
+                    Bibendum turpis cuio aliquet tempor, augue amet, mattis urna. Et pharetra habitasse accumsan, ac adipiscing magna.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-deck">
+        <div class="row">
+            <div class="card col-lg-6 px-0 mb-2 shadow p-3 mb-5 bg-body rounded">
+                <div class="card-header">Features</div>
+                <div class="card-body">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula enim
+                        rhoncus, vitae velit et habitant neque justo sed. Amet, in et tincidunt lectus
+                        laoreet. Elementum quam dolor enim lacus, nunc nulla placerat egestas mauris.
+                        Diam semper vestibulum gravida enim orci varius. Suspendisse tellus
+                        in netus nulla erat ligula. Tempus pellentesque habitant nec quis tempor erat
+                        id. Mi enim massa in diam viverra euismod. Lobortis ut varius imperdiet sit
+                        convallis vivamus nec ut ultrices. Quis eget vehicula in lobortis. Bibendum
+                        turpis cum tempor odio. Luctus sit arcu nec vitae arcu fermentum at
+                        venenatis. Massa massa amet vel maecenas a. Odio cras odio sit lacinia
+                        adipiscing venenatis. Vitae, mauris nisl faucibus a sed sed. Id viverra sit ac
+                        molestie mattis nisl. Pharetra,
+                    </p>
+                </div>
+            </div>
+
+            <div class="card col-lg-6 px-0 mb-2 shadow p-3 mb-5 bg-body rounded">
+                <div class="card-header">Specifications</div>
+                <div class="card-body">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula enim
+                        rhoncus, vitae velit et habitant neque justo sed. Amet, in et tincidunt lectus
+                        laoreet. Elementum quam dolor enim lacus, nunc nulla placerat egestas mauris.
+                        Diam semper vestibulum gravida enim orci varius. Suspendisse tellus
+                        in netus nulla erat ligula. Tempus pellentesque habitant nec quis tempor erat
+                        id. Mi enim massa in diam viverra euismod. Lobortis ut varius imperdiet sit
+                        convallis vivamus nec ut ultrices. Quis eget vehicula in lobortis. Bibendum
+                        turpis cum tempor odio. Luctus sit arcu nec vitae arcu fermentum at
+                        venenatis. Massa massa amet vel maecenas a. Odio cras odio sit lacinia
+                        adipiscing venenatis. Vitae, mauris nisl faucibus a sed sed. Id viverra sit ac
+                        molestie mattis nisl. Pharetra,
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="card  col-md-12 col-sm-12  px-0 mt-2">
+            <div class="card-header d-flex justify-content-between">
+                <p>Customer Feedbacks</p>
+                <a href="#" class="card-link ml-auto text-warning">See all</a>
+            </div>
+
+
+
+            <div class="card-body">
+                <div class="card border-0 justify-content-start">
+                    <div class="card-body d-flex justify-content-between p-1">
+
+
+                        <h6 class="card-title text-left">
+                            A very good car &nbsp;
+                            <span class="fa fa-star stars text-warning"></span>
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star text-warning"></span>
+                            <span class="fa fa-star text-warning"></span>
+                        </h6>
+                        <h6 class="card-title text-right">11/04/2022</h6>
+
+
+                    </div>
+                </div>
+
+
+                <p class="mb-3">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula enim
+                    rhoncus, vitae velit et habitant neque justo sed. Amet, in et tincidunt lectus
+                    laoreet. Elementum quam dolor enim lacus, nunc nulla placerat egestas mauris.
+                </p>
+
+
+                <h6 class="aba">Abayomi Sunday</h6>
+            </div>
+        </div>
+        <div class="card  col-md-12 col-sm-12  px-0 mb-3">
+            <div class="card border-0">
+                <div class="card-body d-flex justify-content-between p-3">
+
+                    <h6 class="card-title">
+                        Awesome car to drive &nbsp;
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning "></span>
+                        <span class="fa fa-star text-warning"></span>
+                    </h6>
+                    <h6 class="card-title text-right">11/04/2022</h6>
+
+                </div>
+                <p class="mb-3 p-3">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula enim
+                    rhoncus, vitae velit et habitant neque justo sed. Amet, in et tincidunt lectus
+                    laoreet. Elementum quam dolor enim lacus, nunc nulla placerat egestas mauris.
+                </p>
+                <h6 class="p-3">Abayomi Sunday</h6>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,523 @@
+﻿@model IEnumerable<FeaturedCarViewModel>
+@{
+    ViewData["Title"] = "CAR RENTALS";
+}
+
+
+@*    Banner starts here*@
+<section class="hero-container-wrapper">
+        <div class ="hero-container">
+            <div class = "container banner-container">  
+                 <div class= "cont">
+                         <div class = "container-text">
+                    <h1 class = "mb-4">Renting cars have never been this easy</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing 
+                        elit. Eu a lectus lobortis neque, nec scelerisque amet, sed
+                       Interdum nibh pellentesque lectus etiam eu vitae.
+                   </p>
+                </div>
+
+                         <form method="post" asp-controller="Car" asp-action="SearchCar">
+                             <div class="pickup-time pickup-time-banner p-2">
+                                 <div class="pickup-schedule d-flex">
+                                     <div class="picks">
+                                         <h2>PICK UP LOCATION</h2>
+                                         <div class="options">
+                                             <select type="select" class="p-2" style="width:100%" name="location" id="trip-select">
+                                                 <option value="">Select location</option>
+                                                 @foreach (string name in Enum.GetNames(typeof(States)))
+                                                 {
+                                                        <option value="@name">@name</option>
+                                                 }
+
+                                             </select>
+                                         </div>
+                                     </div> 
+
+                                    <div class="picks">
+                                        <h2>PICK UP DATE</h2>
+                                        <div class="options w-100 ">
+                                            <input type='date' style="width:100%" name="pickupdate" />
+                                        </div>
+                                    </div>
+                                    <div class="picks">
+                                        <h2>RETURN DATE</h2>
+                                        <div class="options">
+                                            <input type='date' style="width:100%" name="returndate" />
+                                        </div>
+                                    </div>
+                                    <div class="options d-flex align-items-center  mt-4 hire-btn">
+                                        <button type="submit" class="py-2 px-4 search-btn">Search</button>
+                                    </div>
+                                </div>
+                                                             </div>
+                         </form>
+            
+                 </div> 
+            </div>
+         </div>
+</section>
+       
+@* Banner ends here*@
+
+
+
+@* Partners ends here*@
+<div class="container mt-5">
+    <div class="partners-text">
+        <p class="font-weight-bold">Used by companies and employees across Nigeria</p>
+    </div>
+    <div class = "partners">
+        <img src = "~/images/image3.png" alt = "insurello" class = "img-fluid" />
+        <img src = "~/images/image9.png" alt = "insurello" class = "img-fluid"/>
+        <img src = "~/images/image2.png" alt = "insurello" class = "img-fluid"/>
+        <img src = "~/images/image4.png" alt = "insurello" class = "img-fluid"/>
+        <img src = "~/images/image8.png" alt = "insurello" class = "img-fluid"/>
+        <img src = "~/images/image5.png" alt = "insurello" class = "img-fluid"/>
+        <img src = "~/images/image10.png" alt = "insurello"class = "img-fluid"/>
+        <img src = "~/images/image6.png" alt = "insurello" class = "img-fluid"/>
+
+
+    </div>
+
+</div>
+@* Partners ends here*@
+
+
+@*    feature cars starts here*@
+<div class="feature-container mt-5">
+    <div class="container">
+        <div class="feature-text">
+            <h2 class="">Our Featured Cars</h2>
+            <p class="">Browse from a list of cars. Make the best selection.</p>
+        </div>
+        <div class="feature-wrapper">
+            <span class="fas fa-chevron-circle-left arrow"></span>
+            <span class="fas fa-chevron-circle-right arrow"></span>
+
+                 <section class = "feature-section">
+                     @foreach (var item in Model)
+                    {
+                        <div class = "feature">
+                          <img src = @item.ImageUrl  width = "270" height= "220"/>
+                             <div class = "feature-list">
+                                 <h3 class = "font-weight-bold">@item.Model</h3>
+                                @if(@item.AirCondition){
+                                    <div class = "mt-3">
+                                   <i class="fas fa-check-circle" style ="color:green";></i>
+                                 <span>Air Condition</span></div>
+                                }else{
+                                   <div class = "mt-3">
+                                  <i class="fas fa-times-circle" style ="color:red";></i>
+                                 <span>Air Condition</span></div>
+                                }
+                            @if( @item.Bluetooth)
+                            {
+                                <div class = "mt-3">
+                                <i class="fas fa-check-circle" style ="color:green";></i>
+                                 <span>Bluetooth</span></div> 
+                            }else{
+                                   <div class = "mt-3">
+                                   <i class="fas fa-times-circle" style ="color:red";></i>
+                                 <span>Bluetooth</span></div>
+                                }
+                            @if (item.NavigationSystem)
+                            {
+                                <div class = "mt-3">
+                                    <i class="fas fa-check-circle" style ="color:green";></i>
+                                    <span>Navigation System</span></div>
+                                
+                            }else{
+                                <div class = "mt-3">
+                                    <i class="fas fa-times-circle" style ="color:red";></i>
+                                    <span>Navigation System</span></div>
+
+                            }
+
+                              @if (item.RemoteStart)
+                            {
+                                <div class = "mt-3">
+                                    <i class="fas fa-check-circle" style ="color:green";></i>
+                                    <span>Remote Start</span></div>
+                                
+                            }else{
+                                <div class = "mt-3">
+                                    <i class="fas fa-times-circle" style ="color:red";></i>
+                                    <span>Remote Start</span></div>
+
+                            }
+
+                              @if (item.Sunroof)
+                            {
+                                <div class = "mt-3">
+                                    <i class="fas fa-check-circle" style ="color:green";></i>
+                                    <span>Sun Roof</span></div>
+                                
+                            }else{
+                                <div class = "mt-3">
+                                    <i class="fas fa-times-circle" style ="color:red";></i>
+                                    <span>Sun Roof</span></div>
+
+                            }
+
+           
+                                  <div class = "feature-details d-flex justify-content-between mt-4 text-dark font-weight-bold">
+                                  <a asp-controller="Car" asp-action="Details" asp-route-id="@item.Id"><p>View details</p></a>
+                                  <p><a href="#">
+                                    <i class="fas fa-arrow-right " aria-hidden="true"></i></a>
+                                     </p>                          
+                                </div>  
+                           </div>                       
+                     </div>
+                    }
+                     
+                   
+                 </section>
+               
+             </div>
+   
+
+    </div>
+
+</div>
+
+@*    feature cars ends here*@
+
+@*What makes us different starts here*@
+<article class = "different-container">
+    <div class = "container">
+        <div class = "different-headers text-center font-weight-bold">
+            <h2 class = "font-weight-bold">What Makes Us Different</h2>
+            <p class = "fs-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu a lectus lobortis neque. </p>
+
+        </div>
+
+        <div class = "row different-row">
+            <div class = "col-md-4">
+                <div class = "pt-2 different-hover">
+                <img src = "~/images/receipt.png" alt = "receipt"/>
+                <div class = "mt-4 different-text">
+                    <h2>Easy Booking</h2>
+                     <p class = "mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                         Eu a lectus lobortis neque, nec scelerisque amet, 
+                         sed. Interdum nibh pellentesque lectus etiam eu vitae 
+                         interdum nibh pellentesque lectus etiam.</p>
+                </div>
+               </div>
+
+            </div>
+             <div class = "col-md-4">     
+                    <div class = "pt-2 different-hover">
+                   <img src = "~/images/security.png" alt = "security"/>
+                    <div class = "mt-4 different-text">  
+                    <h2>Secure Payment</h2>
+                     <p class = "mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                         Eu a lectus lobortis neque, nec scelerisque amet, 
+                         sed. Interdum nibh pellentesque lectus etiam eu vitae 
+                         interdum nibh pellentesque lectus etiam.</p>
+               </div>
+               </div>
+
+            </div>
+             <div class = "col-md-4">
+                       <div class = " pt-2 different-hover">
+                <img src = "~/images/location.png" alt = "location"/>
+                <div class = "mt-4  different-text">
+                    <h2>24/7 Tracking</h2>
+                     <p class = "mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                         Eu a lectus lobortis neque, nec scelerisque amet, 
+                         sed. Interdum nibh pellentesque lectus etiam eu vitae 
+                         interdum nibh pellentesque lectus etiam.</p>
+                </div>
+               
+
+                </div>
+
+        </div>
+        <div>
+
+  </div>
+    </div>
+     </div>
+
+    
+    <div class = "container mt-5">
+      <div class = "body-img-container"> 
+          <img src = "~/images/body-car.png" alt = "" width = "100%" />
+     <div class = "car-body-text">
+         <h2>Step out with style. Rent a car with us.</h2>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu a lectus lobortis neque, nec scelerisque amet, sed.
+             Interdum nibh pellentesque lectus etiam eu vitae.  </p>
+             <a asp-action= "#" >Get Started</a>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+ <div class = "container cartoon-works ">
+   <div class = "cartoon-text font-weight-bold">
+            
+    </div>
+  </div>
+ 
+
+   
+   <section>
+
+<section class = "container">
+   
+    <div class = "procedure-container">
+         <div class = "procedure-header text-center">
+        <h2 class = "">How It Works</h2>
+        <p class = "mx-auto font-weight-bolder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu a lectus lobortis neque, nec 
+            scelerisque amet, sed. Interdum nibh pellentesque lectus etiam eu vitae. </p>
+    </div>
+        <div class = "procedure p-3 justify-content-center">
+        <div class = "procedure-img">
+            <img src = "~/images/Group28.png" class = "cartoon-img" width= "200"/>
+        </div>
+       <div class = "procedure-text">
+          <h2 class = "pro-text"><span>Find </span> a car</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu a lectus lobortis neque,
+              nec scelerisque amet, sed. Interdum nibh pellentesque lectus etiam eu vitae. </p>
+        </div>  
+        </div>
+   
+
+       <div class = "procedure p-3 justify-content-center">
+        <div class = "procedure-img">   
+            <img src = "~/images/Group31.png" class = " cartoon-img" width= "200"/>
+        </div>
+       <div class = "procedure-text">
+        <h2 class = ""><span>Book</span> and pay</h2>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu a lectus lobortis neque, nec scelerisque amet, sed. Interdum nibh pellentesque lectus etiam eu vitae. </p>
+        </div>  
+
+    </div>
+       <div class = "procedure p-3 justify-content-center">
+        <div class = "procedure-img">   
+            <img src = "~/images/Price-pana1.png" class = "cartoon-img" width= "200"/>
+        </div>
+       <div class = "procedure-text">
+       <h2 class = ""><span>Become</span> a Host</h2>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu a lectus lobortis neque, 
+               nec scelerisque amet, sed. Interdum nibh pellentesque lectus etiam eu vitae. </p>
+        </div>  
+
+    </div>
+     </div>
+   
+</section>
+@*   Testiomnial starts here*@
+
+ <section class = "testimonials">
+        <div class = "container">          
+            <div class = "row">
+               <div class = "col-md-12">
+                     <div class ="text-center font-weight-bolder test-text">
+                         <h2>Testimonials</h2>
+                         <p>What are people saying about us</p>
+                           </div>
+                     </div>  
+                    <div class="owl-carousel owl-theme" id="customer-testimonials">
+                        <div class="item">
+                            <div class = "shadow-effect">
+                                <img class ="img-circle" src="~/images/testimonial.png" width = "100%">
+                                    <div class = "testimonial-name">
+                              Paulson Aboyemi
+                            </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab accusamus atque in quasi,
+                                    tempore nam ullam aut tenetur reprehenderit animi repudiandae placeat sequi! Eos alias,
+                                    maxime exercitationem quo laudantium quos.</p>
+                                  <div class = "star-rates">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                 <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+
+                            </div>
+                            </div>
+                        </div>   
+                        <div class="item ">
+                            <div class = "shadow-effect">
+                                <img class ="img-circle" src="~/images/testimonial.png">
+                                     <div class = "testimonial-name">
+                                        Paulson Aboyemi
+                            </div>
+                                
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab accusamus atque in quasi, 
+                                tempore nam ullam aut tenetur reprehenderit animi repudiandae placeat sequi! Eos alias,
+                                maxime exercitationem quo laudantium quos.</p>
+                                 <div class = "star-rates">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                 <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+
+                            </div>
+                           
+                            </div>
+                       
+                        </div> 
+                        <div class="item">
+                            <div class = "shadow-effect">
+                                <img class ="img-circle" src="~/images/testimonial.png">
+                                   <div class = "testimonial-name">
+                               Paulson Aboyemi
+                            </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab accusamus atque in quasi, 
+                                    tempore nam ullam aut tenetur reprehenderit animi repudiandae placeat sequi! Eos alias, 
+                                    maxime exercitationem quo laudantium quos.</p>
+                                  <div class = "star-rates">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                 <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+
+                            </div>
+                            </div>
+                         
+                        </div> 
+                       
+                        <div class="item">
+                            <div class = "shadow-effect">
+                                <img class ="img-circle" src="~/images/testimonial.png">
+                                <div class = "testimonial-name">
+                                Paulson Aboyemi
+                            </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab accusamus atque in quasi,
+                                    tempore nam ullam aut tenetur reprehenderit animi repudiandae placeat sequi! Eos alias,
+                                    maxime exercitationem quo laudantium quos.</p>
+                                  <div class = "star-rates">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                 <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+
+                            </div>
+                            </div>
+
+                        </div> 
+                       
+                        
+                    
+                       
+                    </div>  
+            
+            </div>
+        </div>
+
+    </section>
+@*   Testiomnial ends here*@
+   </section>
+
+@*   blog starts here*@
+
+<div class = " container story-wrapper-container">
+    <h2 class = "text-center mt-5 font-weight-bold display-5 blog-text-header"> Read Our Story</h2>
+    <div class = "container">
+        <div class = "row mt-5">
+            <div class = "col-md-4 p-2 bg-white ">
+                <img src = "~/images/BlogImage.png "width= "100%"/>
+                <div class = "blog-text mt-4">
+                 <h2>Start a blog to reach your creative peak</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu a 
+                   lobortis neque, nec scelerisque amet, sed. Interdum nibh pellentesque lectus etiam eu vitae. </p>
+                   </div>
+                     <div class = "d-flex mt-3 text-dark font-weight-bold align-items-center blog-link"> 
+                         <p><a asp-action = "#">Read More</a></p>
+                          <p><a asp-action="#"><i class="fas fa-arrow-right mx-4 " aria-hidden="true"></i></a></p>                          
+                   </div>
+            </div>
+
+        
+            <div class = "col-md-4 p-2 bg-white ">
+                <img src = "~/images/BlogImage2.png"width= "100%"/>
+                <div class = "blog-text mt-4">
+                 <h2 class = "font-weight-bold">Start a blog to reach your creative peak</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu a 
+                   lobortis neque, nec scelerisque amet, sed. Interdum nibh pellentesque lectus etiam eu vitae. </p>
+                   </div>
+                     <div class = "d-flex mt-3 text-dark font-weight-bold align-items-center blog-link"> 
+                         <p><a asp-action = "#">Read More</a></p>
+                          <p><a asp-action="#"><i class="fas fa-arrow-right mx-4 " aria-hidden="true"></i></a></p>                          
+                   </div>
+            </div>
+       
+         
+            <div class = "col-md-4 p-2 bg-white ">
+                <img src = "~/images/BlogImage3.png "width= "100%"/>
+                <div class = "blog-text mt-4">
+                 <h2 class = "font-weight-bold">Start a blog to reach your creative peak</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu a 
+                   lobortis neque, nec scelerisque amet, sed. Interdum nibh pellentesque lectus etiam eu vitae. </p>
+                   </div>
+                     <div class = "d-flex mt-3 text-dark font-weight-bold align-items-center blog-link"> 
+                         <p><a asp-action = "#">Read More</a></p>
+                          <p><a asp-action="#"><i class="fas fa-arrow-right mx-4 " aria-hidden="true"></i></a></p>                          
+                   </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@*   blog ends here*@
+ <div class = " container hires-container mt-5 rounded">
+           <div class = "container hire-content ">
+               <div class = "text-center hire-contain " >
+               <h2 class = "text-white font-weight-bolder w-100" >Ready to hire your first car? Find it here, Let’s go!</h2>
+                   </div>
+      <div class = "pickup-time pickup pickup-times p-2">
+        <div class = "pickup-schedule pickup-schedules d-flex">
+        <div class="picks ">
+            <h2>PICK UP LOCATION</h2>
+            <div class = "options choose">
+            <select name="choice" class = "">
+              <option value="first">First Value</option>
+              <option value="second" selected>Select Location</option>
+              <option value="third">Third Value</option>
+            </select>
+         </div>
+        </div>
+
+        <div class = "picks">
+              <h2>PICK UP DATE</h2>
+              <div class = "options choose w-100 ">
+               <select name="choice" class = "">
+               <option value="first">First Value</option>
+               <option value="second" selected>Select Date</option>
+               <option value="third">Third Value</option>
+             </select>
+             </div>
+            </div>
+            <div class = "picks">
+               <h2>RETURN DATE</h2>
+               <div class = "options choose">
+                <select name="choice" class = "">
+               <option value="first">First Value</option>
+               <option value="second" selected>Select Date</option>
+               <option value="third">Third Value</option>
+             </select>
+             </div>
+            </div>
+            <div class = "options choose d-flex align-items-center picks mt-4">
+                <a asp-action = "" class = " py-2 px-4 search-btn footer-btn">Search</a>
+                </div>
+               </div>
+        </div>
+            
+               </div> 
+            
+            </div>
+      
+
+
+
+      
